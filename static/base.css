@@ -2,8 +2,10 @@
     margin: 2rem 0;  font-family: 'Rock Salt', cursive;
 }
 .DevJunBlog_footer_button{
-    font-size: .6rem; margin: 2rem;
+    font-size:0.9rem;
+    margin: 0rem;
 }
 .DevJunBlog_Center_2margin{
     text-align: center; margin: 2rem 0rem;
 }
+
