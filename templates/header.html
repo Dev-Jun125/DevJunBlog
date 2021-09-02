@@ -10,16 +10,19 @@
             <span>nav2</span> |
             <span>nav3</span> |
             {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:create' %}">
+                <span style="color:white;">회원가입 |</span>
+            </a>
             <a href="{% url 'accountapp:login' %}?next={{ 'accountapp:hello_world' }}">
-                <span style="color:white;">login</span>
+                <span style="color:white;">로그인 </span>
             </a>
 
             {% else %}
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
-                <span style="color:white;">mypage</span>
+                <span style="color:white;">마이페이지 |</span>
             </a>
             <a href="{% url 'accountapp:logout' %}?next={{ 'accountapp:login' }}">
-                <span style="color:white;">logout</span>
+                <span style="color:white;">로그아웃</span>
             </a>
             {% endif %}
         </div>
