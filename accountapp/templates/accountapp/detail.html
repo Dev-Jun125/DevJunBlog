@@ -2,9 +2,11 @@
 {% load bootstrap4 %}
 
 {% block content %}
-            {% if target_user == user %}
+    <div style="text-align:right; margin 4rem;">
+        {% if target_user == user %}
+
             <a href="{% url 'accountapp:update' pk=user.pk %}">
-                <p style="text-align: right; color:white">
+                <p style="display:inline; padding:2rem;text-align: right; color:white; margin 4rem auto; ">
                     개인 정보 변경
                 </p>
             </a>
@@ -13,15 +15,50 @@
                     회원 탈퇴
                 </p>
             </a>
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                <p style="text-align: right; color:white">
+                    프로필 수정
+                </p>
+            </a>
             {% endif %}
+    </div>
     <div style="text-align: center; max-width:500px; margin:4rem auto">
+        {% if target_user == user %}
         <div>
-            <p>
-                {{ target_user.date_joined }}
-            </p>
+            <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem;" src="{{ target_user.profile.image.url }}" alt="">
+            {% if target_user.profile %}
             <h2>
-                {{ target_user.username }}
+                {{ target_user.profile.nickname }}
+
             </h2>
+
+             <h2>
+                {{ target_user.profile.message }}
+
+            </h2>
+            {% else %}
+            <a href="{% url 'profileapp:create' %}">
+                <h2>
+                    프로필 생성
+                </h2>
+            </a>
+            {% endif %}
+            {% else %}
+
+            <h2 style="color:red">
+                [경고!]
+            </h2>
+            <h3 style="color:white; margin:5rem 0rem;" >
+                                타인의 프로필은 볼 수 없습니다.
+            </h3>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <h2 style="color:white">
+                    내 프로필 보기
+                </h2>
+            </a>
+            {% endif %}
+
+
 
 
         </div>
