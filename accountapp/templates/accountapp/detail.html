@@ -15,18 +15,23 @@
                     회원 탈퇴
                 </p>
             </a>
-            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                <p style="text-align: right; color:white">
+            {% if target_user.profile %}
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    <p style="text-align: right; color:white">
                     프로필 수정
-                </p>
-            </a>
+                    </p>
+                </a>
+            {% endif %}
+
+
             {% endif %}
     </div>
     <div style="text-align: center; max-width:500px; margin:4rem auto">
         {% if target_user == user %}
         <div>
-            <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem;" src="{{ target_user.profile.image.url }}" alt="">
+
             {% if target_user.profile %}
+            <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem;" src="{{ target_user.profile.image.url }}" alt="">
             <h2>
                 {{ target_user.profile.nickname }}
 
