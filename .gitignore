@@ -81,5 +81,5 @@ db.sqlite3
 
 .idea/
 
-media/profile/
+media/profile
 __pycache__/
