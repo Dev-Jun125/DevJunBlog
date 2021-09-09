@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<h2 style="color:red">
+                [경고!]
+            </h2>
+            <h3 style="color:white; margin:5rem 0rem;" >
+                                타인의 프로필은 볼 수 없습니다.
+            </h3>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <h2 style="color:white">
+                    내 프로필 보기
+                </h2>
+            </a>
+            {% endif %}

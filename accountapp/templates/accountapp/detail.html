@@ -2,6 +2,8 @@
 {% load bootstrap4 %}
 
 {% block content %}
+
+
     <div style="text-align:right; margin 4rem;">
         {% if target_user == user %}
 
@@ -27,7 +29,6 @@
             {% endif %}
     </div>
     <div style="text-align: center; max-width:500px; margin:4rem auto">
-        {% if target_user == user %}
         <div>
 
             {% if target_user.profile %}
@@ -48,25 +49,12 @@
                 </h2>
             </a>
             {% endif %}
-            {% else %}
 
-            <h2 style="color:red">
-                [경고!]
-            </h2>
-            <h3 style="color:white; margin:5rem 0rem;" >
-                                타인의 프로필은 볼 수 없습니다.
-            </h3>
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
-                <h2 style="color:white">
-                    내 프로필 보기
-                </h2>
-            </a>
-            {% endif %}
+
 
 
 
 
         </div>
     </div>
-
 {% endblock %}
