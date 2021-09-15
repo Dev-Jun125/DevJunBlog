@@ -69,6 +69,5 @@ class AccountDeleteView(DeleteView):
     template_name = 'accountapp/delete.html'
 
 
-def warning():
-    return HttpResponse('accountapp/hello_world.html')
+
 
