@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width:500px; margin:4rem auto">
+            <h4 style="color:white">글 삭제</h4>
+            <h4 style="color:red; font-weight:bold;">정말로 {{ target_article.title }}을 삭제 하시겠습니까?</h4>
+        <form action="{% url 'articleapp:delete' pk=target_article.pk %}" method="post">
+            {% csrf_token %}
+             <input type="submit" value = "네" class="btn btn-danger rounded-pill col-6 mt-3">
+        </form>
+        <form action="{% url 'articleapp:list' %}">
+             <input type="submit" value = "아니오" class="btn btn-danger rounded-pill col-6 mt-3">
+        </form>
+
+    </div>
+
+{% endblock %}

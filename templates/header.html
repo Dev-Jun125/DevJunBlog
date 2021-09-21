@@ -1,12 +1,14 @@
     <div>
         <div class="DevJunBlog_Center_2margin">
         <div class="DevJunBlog_headerfooter_logo">
-        <a href="{% url 'accountapp:hello_world' %}">
+        <a href="{% url 'articleapp:list' %}">
             <h1 style="font-size:4rem; color:white; font-weight:bold;";>DevJunBlog</h1>
         </a>
         </div>
         <div style="color:white;">
-            <span>nav1</span> |
+            <a href="{% url 'articleapp:list' %}">
+                <span style="color:white;">리스트 </span>
+            </a>
             <span>nav2</span> |
             <span>nav3</span> |
             {% if not user.is_authenticated %}
