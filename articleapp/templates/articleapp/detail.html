@@ -3,28 +3,32 @@
 
 {% block content %}
 
-<div>
-    <div style="text-align:center; margin 4rem;">
+    <div>
+    <div style="text-align: center; margin: 4rem; color: white;">
         <h1>
-            {{ target_article.title }}
+           제목 : {{ target_article.title }}
         </h1>
-        <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem;" src="{{ target_article.image.url }}" alt="">
-
-
+        <h4>
+           작성자 : {{ target_article.writer.profile.nickname }}
+        </h4>
+        <img style="height:15rem; width:15rem; margin:2rem;"
+             src="{{ target_article.image.url }}" alt="">
         <p>
-            {{ target_article.content }}
+           내용 : {{ target_article.content }}
         </p>
     </div>
+    {% if target_article.writer == user %}
     <div style="text-align:center">
-    <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+    <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-primary rounded-pill col-3 mt-3 mb-3">
             글 수정
     </a>
-</div>
+    </div>
     <div style="text-align:center">
-    <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
-        글삭제
+    <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded-pill col-3 mt-3 mb-3">
+        글 삭제
     </a>
         </div>
-</div>
+        {% endif %}
+
 </div>
 {% endblock %}
