@@ -1,14 +1,52 @@
 <h5 style="text-align:center; color:white;">
+     <ul class="pagination justify-content-center" style="margin-top: 2rem;">
+<!-- 첫 페이지-->
+
+    {% if page_obj.number != 1 %}
+    <li class="page-item">
+        <a class="page-link" href="?page={{1}}">
+        처음
+        </a>
+    </li>
+    {% endif %}
+<!-- 이전 페이지 -->
     {% if page_obj.has_previous %}
-    <a href='?page={{page_obj.previous_page_number}}'>
+    <li class="page-item">
+    <a class="page-link" href='?page={{page_obj.previous_page_number}}'>
         <<
     </a>
+    </li>
     {% endif %}
-    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+<!-- 페이지 리스트 -->
+    {% for page_number in page_obj.paginator.page_range %}
+    {% if page_number == page_obj.number %}
+         <li class="page-item">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+         </li>
+    {% else %}
+         <li class="page-item">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+     </li>
+    {% endif %}
+    {% endfor %}
+<!-- 다음 페이지 -->
     {% if page_obj.has_next %}
-    <a href='?page={{page_obj.next_page_number}}'>
+         <li class="page-item">
+
+    <a class="page-link" href='?page={{page_obj.next_page_number}}'>
         >>
     </a>
+         </li>
     {% endif %}
+<!-- 마지막 페이지 -->
+    {% if page_obj.number != page_obj.paginator.num_pages %}
+         <li class="page-item">
+
+    <a class="page-link" href = '?page={{page_obj.paginator.num_pages}}'>
+        끝
+    </a>
+         </li>
+    {% endif %}
+     </ul>
 </h5>
 

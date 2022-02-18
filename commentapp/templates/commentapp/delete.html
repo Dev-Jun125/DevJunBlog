@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width:500px; margin:4rem auto">
+            <h4 style="color:white">댓글 삭제</h4>
+            <h4 style="color:red; font-weight:bold;">정말로 {{ target_comment.content }}을 삭제 하시겠습니까?</h4>
+        <form action="{% url 'commentapp:delete' pk=target_comment.pk %}" method="post">
+            {% csrf_token %}
+             <input type="submit" value = "네" class="btn btn-danger rounded-pill col-6 mt-3">
+        </form>
+        <form action="{% url 'articleapp:detail' pk=target_comment.article.pk %}">
+             <input type="submit" value = "아니오" class="btn btn-danger rounded-pill col-6 mt-3">
+        </form>
+
+    </div>
+
+{% endblock %}
