@@ -4,8 +4,8 @@
 {% block content %}
 
     <div style="text-align: center; max-width:500px; margin:4rem auto">
-            <h4>개인 정보 변경</h4>
-        <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="post">
+            <h4>카테고리 생성</h4>
+        <form action="{% url 'projectapp:create' %}" method="post">
             {% csrf_token %}
             {% bootstrap_form form %}
              <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">

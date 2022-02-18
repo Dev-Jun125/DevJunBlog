@@ -9,3 +9,8 @@
     text-align: center; margin: 2rem 0rem;
 }
 
+@media screen and (max-width:500px) {
+    html {
+        font-size: 13px;
+    }
+}

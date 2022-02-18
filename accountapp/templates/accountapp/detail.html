@@ -4,22 +4,22 @@
 {% block content %}
 
 
-    <div style="text-align:right; margin 4rem;">
+    <div style="text-align:right; margin: 0;">
         {% if target_user == user %}
 
             <a href="{% url 'accountapp:update' pk=user.pk %}">
-                <p style="display:inline; padding:2rem;text-align: right; color:white; margin 4rem auto; ">
+                <p style="display:block; text-align: right; color:white; margin: 0 0 ">
                     개인 정보 변경
                 </p>
             </a>
             <a href="{% url 'accountapp:delete' pk=user.pk %}">
-                <p style="text-align: right; color:white">
+                <p style="display:block; text-align: right; color:white; margin: 0 0;">
                     회원 탈퇴
                 </p>
             </a>
             {% if target_user.profile %}
                 <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    <p style="text-align: right; color:white">
+                    <p style="display:block; text-align: right; color:white; margin: 0 0;">
                     프로필 수정
                     </p>
                 </a>
@@ -28,7 +28,7 @@
 
             {% endif %}
     </div>
-    <div style="text-align: center; max-width:500px; margin:4rem auto">
+    <div style="text-align: center; max-width:500px; margin: 4rem auto">
         <div>
 
             {% if target_user.profile %}

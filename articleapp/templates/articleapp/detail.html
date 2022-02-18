@@ -11,7 +11,7 @@
         <h4>
            작성자 : {{ target_article.writer.profile.nickname }}
         </h4>
-        <img style="height:15rem; width:15rem; margin:2rem;"
+        <img style="height:15rem; width:15rem; margin:1rem;"
              src="{{ target_article.image.url }}" alt="">
         <p>
            내용 : {{ target_article.content }}
@@ -30,5 +30,11 @@
         </div>
         {% endif %}
 
+    <hr>
+        {% for comment in target_article.comment.all %}
+        {% include 'commentapp/detail.html' with comment=comment %}
+        {% endfor %}
+
+        {% include 'commentapp/create.html' with article=target_article %}
 </div>
 {% endblock %}
