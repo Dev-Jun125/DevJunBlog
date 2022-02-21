@@ -32,7 +32,7 @@
         <div>
 
             {% if target_user.profile %}
-            <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem;" src="{{ target_user.profile.image.url }}" alt="">
+            <img style="height:15rem; width:15rem; border-radius:20rem; margin:2rem; object-fit: cover;" src="{{ target_user.profile.image.url }}" alt="">
             <h2>
                 {{ target_user.profile.nickname }}
 

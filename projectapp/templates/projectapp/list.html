@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.container {
+    padding: 0;
+    margin: 0, auto;
+    }
 
-</body>
-</html>
+.container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1rem;
+}
+
+.container img {
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+
+
+</style>
+{% if project_list %}
+<div class="container div">
+    {% for project in project_list %}
+    <a href="{% url 'projectapp:detail' pk=project.pk %}">
+        {% include 'snippets/card_project.html' with project=project %}
+    </a>
+    {% endfor %}
+</div>
+<script src="{% static 'js/magicgrid.js' %}">
+
+</script>
+{% else %}
+<div>
+    <h1 style="text-align:center">
+        아직 글이 없습니다.
+    </h1>
+</div>
+{% endif %}
+
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
+<div style="text-align:center">
+    <a href="{% url 'projectapp:create' %}" class="btn btn-dark rounded-pill col-1rem mt-3 mb-1rem">
+        글쓰기
+    </a>
+</div>
+
+
+
+
+{% endblock %}
