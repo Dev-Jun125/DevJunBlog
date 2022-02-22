@@ -2,23 +2,23 @@
 {% load bootstrap4 %}
 
 {% block content %}
-
-
-    <div style="text-align:right; margin: 0;">
-
-           
-
-
+  
     <div style="text-align: center; max-width:500px; margin: 4rem auto">
         <div>
             <img style="height:15rem; width:15rem; border-radius:2rem; margin:2rem; object-fit: cover;" src="{{ target_project.image.url }}" alt="">
 
-            <h2>
+            <h2 style="font-family: 'Nanum Brush Script';">
                 {{target_project.title}}
             </h2>
-            <h5 style="margin-bottom:3rem;">
+            <h5 style="margin-bottom:3rem;font-family: 'Nanum Brush Script';">
                 {{target_project.description}}
             </h5>
         </div>
+        
+        
     </div>
+    <hr style="color : white;">
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div> 
 {% endblock %}

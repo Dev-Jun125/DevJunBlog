@@ -57,4 +57,11 @@
 
         </div>
     </div>
+    <hr style="color:white;">
+    <div>
+        <h2 style="text-align:center; margin:3rem">
+            작성 게시글
+        </h2>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div>
 {% endblock %}
