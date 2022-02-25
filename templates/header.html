@@ -13,6 +13,11 @@
             <a href="{% url 'projectapp:list' %}">
                 <span style="color:white;">게시판 |</span>
             </a>
+
+            <a href="{% url 'subscribeapp:list' %}">
+                <span style="color:white;">구독 게시판 |</span>
+            </a>
+
             {% if not user.is_authenticated %}
             <a href="{% url 'accountapp:create' %}">
                 <span style="color:white;">회원가입 |</span>
@@ -29,5 +34,6 @@
                 <span style="color:white;">로그아웃</span>
             </a>
             {% endif %}
+            <hr style='color:white'>
         </div>
     </div>
