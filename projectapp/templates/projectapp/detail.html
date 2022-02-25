@@ -3,8 +3,8 @@
 
 {% block content %}
   
+    
     <div style="text-align: center; max-width:500px; margin: 4rem auto">
-        <div>
             <img style="height:15rem; width:15rem; border-radius:2rem; margin:2rem; object-fit: cover;" src="{{ target_project.image.url }}" alt="">
 
             <h2 style="font-family: 'Nanum Brush Script';">
@@ -14,10 +14,25 @@
                 {{target_project.description}}
             </h5>
         </div>
-        
-        
+    <hr style="color : white;">
+
+    <div class="text-center">
+        {% if user.is_authenticated %}
+        {% if not subscription %}
+        <a style="font-family: 'Nanum Brush Script'; " href={% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}
+            class="btn btn-primary rounded-pill px-4">
+            구독하기
+        </a>
+        {% else %}
+        <a style="font-family: 'Nanum Brush Script'; " href={% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}
+            class="btn btn-dark rounded-pill px-4">
+            구독취소
+        </a>
+        {% endif %}
+        {% endif %}
     </div>
     <hr style="color : white;">
+    
     <div>
         {% include 'snippets/list_fragment.html' with article_list=object_list %}
     </div> 
