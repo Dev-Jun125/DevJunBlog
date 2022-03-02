@@ -13,9 +13,9 @@
         </h4>
         <img style="height:15rem; width:15rem; margin:1rem;"
              src="{{ target_article.image.url }}" alt="">
-        <p>
-           내용 : {{ target_article.content }}
-        </p>
+        <div>
+           내용 : {{ target_article.content | safe }}
+        </div>
     </div>
     {% if target_article.writer == user %}
     <div style="text-align:center">
