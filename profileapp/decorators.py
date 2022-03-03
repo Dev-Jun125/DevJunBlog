@@ -11,6 +11,6 @@ def profile_ownership_required(func):
     def decorated(request, *args, **kwargs):
         profile = Profile.objects.get(pk=kwargs['pk'])
         if not profile.user == request.user:
-            return HttpResponseRedirect(resolve_url('accountapp:hello_world'))
+            return HttpResponseRedirect(resolve_url('articleapp:list'))
         return func(request, *args, **kwargs)
     return decorated

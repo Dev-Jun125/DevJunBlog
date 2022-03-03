@@ -9,7 +9,7 @@
             {% csrf_token %}
              <input type="submit" value = "네" class="btn btn-danger rounded-pill col-6 mt-3">
         </form>
-        <form action="{% url 'accountapp:hello_world' %}">
+        <form action="{% url 'accountapp:login' %}">
              <input type="submit" value = "아니오" class="btn btn-danger rounded-pill col-6 mt-3">
         </form>
 

@@ -12,34 +12,12 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
 from articleapp.models import Article
 
 # 배열 내부에 데코레이터를 넣어 사용 가능
 has_ownership = [account_ownership_required, login_required]
 
 # Create your views here.
-@login_required # 데코레이터 사용 -> 로그인 여부 확인 데코레이터
-def hello_world(request):
-
-        if request.method == "POST":
-            temp = request.POST.get('hello_world_input')
-
-            new_hello_world = HelloWorld()
-            new_hello_world.text = temp
-            new_hello_world.save()
-
-            return HttpResponseRedirect(resolve_url('accountapp:hello_world'))
-
-        else:
-            hello_world_list = HelloWorld.objects.all()
-
-            return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
-
-
-
-
-
 
 class AccountCreateView(CreateView):
     model = User
